@@ -30,8 +30,13 @@ public class PersonaService implements IPersonaService {
 
 	@Override
 	public int savePersona(Persona p) {
-		// TODO Auto-generated method stub
-		return 0;
+		int res = 0;
+		Persona person = dataJPA.save(p);
+		if (!person.equals(null)) {
+			res=1;
+		}
+		
+		return res;
 	}
 
 	@Override
