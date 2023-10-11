@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Getting Started: Serving Web Content</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<!-- This is a comment
+	<p th:text="${per.getNombre}" />
+	<p th:text="${per.getApellido}" />
+	<p th:text="${per.getCorreo}" />
+	<p th:text="${per.getTelefono}" /> -->
+	<h1>Hola amigos</h1>
+
+	<table>
+		<tr th:each="persona:${personas}">
+			<td th:text="${persona.getId()}">Nombre</td>
+			<td th:text="${persona.getName()}">Nombre</td>
+			<td th:text="${persona.getTelefono()}">Nombre</td>
+
+		</tr>
+
+	</table>
+
+
+
+
+
+</body>
+
+</html>
