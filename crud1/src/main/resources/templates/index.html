@@ -15,13 +15,33 @@
 	<h1>Hola amigos</h1>
 	<a th:href="@{/new}">Agregar nuevo</a>
 
-	<table>
-		<tr th:each="persona:${personas}">
-			<td th:text="${persona.getId()}">Nombre</td>
-			<td th:text="${persona.getName()}">Nombre</td>
-			<td th:text="${persona.getTelefono()}">Nombre</td>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nombre</th>
+				<th>Telefono</th>
+				<th>Accion</th>
 
-		</tr>
+			</tr>
+
+		</thead>
+		<tbody>
+			<tr th:each="persona:${personas}">
+				<td th:text="${persona.getId()}">Nombre</td>
+				<td th:text="${persona.getName()}">Nombre</td>
+				<td th:text="${persona.getTelefono()}">Nombre</td>
+				<td>
+					<a th:href="@{/edit/}+${persona.getId()}">Editar</a>
+					
+					
+				</td>
+
+			</tr>
+
+		</tbody>
+
+
 
 	</table>
 

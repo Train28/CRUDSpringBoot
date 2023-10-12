@@ -1,11 +1,13 @@
 package com.example.crud1.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.crud1.interfaceService.IPersonaService;
@@ -38,7 +40,23 @@ public class Controlador {
 	@PostMapping("/save")
 	public String save(@Valid Persona p, Model model) {
 		service.savePersona(p);
-		return "redirect:/listar";
+		return "redirect:/confirmacion";
 	}
+	
+	@GetMapping("/confirmacion")
+	public String confir() {
+
+	
+		return "confirmacion";
+	}
+	@GetMapping("/edit/{id}")
+	public String editar(@PathVariable int id, Model model) {
+		Optional<Persona> persona = service.listarbyId(id);
+		model.addAttribute("persona", persona);
+
+		return "form2";
+	}
+	
+	
 
 }
